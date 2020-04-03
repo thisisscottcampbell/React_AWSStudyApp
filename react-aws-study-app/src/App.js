@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import QuizBar from './QuizBar';
+import FlashCard from './FlashCard'
 
 class App extends Component {
   state = { cardStyle: "Random" }
@@ -13,8 +14,11 @@ class App extends Component {
 
   render() {
     return (
-      <div className="QuizBar">
-        <QuizBar userChoice={this.userChoice} />
+      <div className="App align-items-center d-flex">
+        <div className="container">
+          <QuizBar userChoice={this.userChoice} />
+          <FlashCard />
+        </div>
       </div>
     );
   }
