@@ -2,25 +2,25 @@ import React, { Component } from 'react';
 
 class MultiCard extends Component {
   render() {
-    const question = this.props.questionData;
-    console.log(question);
+    // const question = this.props.questionData;
+    // console.log(question);
     const choices = ['a','b','c','d'];
-    const options = question.options.map((option,i)=>{
+    const options = this.props.questionData.options.map((option,i)=>{
         return(<li key={i}>{choices[i]}. {option}</li>)
     })
-    const answerIndex = question.options.indexOf(question.answer);
+    const answerIndex = this.props.questionData.options.indexOf(this.props.questionData.answer);
     const answerLetter = choices[answerIndex];
 
     return(
         <div>
             <div className="card-back">
-                <div>{question.service}</div>
+                <div>{this.props.questionData.service}</div>
                 <ul className="multi">
                     {options}
                 </ul>
             </div>
             <div className="card-front">
-                {answerLetter}. {question.answer}
+                {answerLetter}. {this.props.questionData.answer}
             </div>
         </div>
     )
