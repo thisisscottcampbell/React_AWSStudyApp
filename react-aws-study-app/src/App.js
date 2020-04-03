@@ -3,12 +3,18 @@ import './App.css';
 import QuizBar from './QuizBar';
 
 class App extends Component {
-  state = { }
+  state = { cardStyle: "Random" }
+
+  userChoice = (userChoice) => {
+    this.setState({
+      cardStyle: userChoice
+      })
+    }
 
   render() {
     return (
       <div className="QuizBar">
-        <QuizBar />
+        <QuizBar userChoice={this.userChoice} />
       </div>
     );
   }
