@@ -21,7 +21,7 @@ class FlashCard extends Component {
 }
 
   componentDidMount = () =>{
-    this.newCard()
+    //this.newCard()
   }
 
   flip = (e )=>{
@@ -64,11 +64,23 @@ class FlashCard extends Component {
         </div>
       )
     }
+
+    const cardStyle = this.props.cardStyle;
+    let card;
+    if(cardStyle === 'Multi'){
+        card = <MultiCard questionData={this.state.questionData} />
+    }else if(cardStyle === 'Regular'){
+        card = <RegularCard questionData={this.state.questionData} />
+    }else{
+        card = <RandomWeighted questionData={this.state.questionData} />
+    }
+    console.log(card)
+
     return(
       <div>
           <div className="row align-items-center card-holder">
               <div onClick={this.flip} className={`col-sm-6 offset-sm-3 card mb-3" ${this.state.flipClass}`}>
-                  <RegularCard questionData={this.state.questionData} />
+                  { card }} />
               </div>  
           <button onClick={this.newCard} className="btn btn-primary btn-lg">Next Question</button>
           </div>
