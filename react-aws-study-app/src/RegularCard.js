@@ -9,10 +9,10 @@ class RegularCard extends Component {
       <div>
         <div className="card-back">
             {question.service}  
-            <h5>card back</h5> 
+           
         </div>
         <div className="card-front">
-          <h5>card front</h5>
+          
           <div>{question.desc}</div>
           <div>{question.cat}</div>
         </div>

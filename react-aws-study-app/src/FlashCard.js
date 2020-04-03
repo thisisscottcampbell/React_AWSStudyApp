@@ -16,8 +16,7 @@ class FlashCard extends Component {
 
   state = { 
     flipClas: "",
-    questionData: "",
-    ready: true
+    questionData: ""
 }
 
   componentDidMount = () =>{
@@ -48,15 +47,15 @@ class FlashCard extends Component {
     axios.get(path).then((response) => {
       this.setState({
         questionData: response.data,
-        ready: true
       })
+      this.props.nowReady();
       console.log(response.data)
     })
   }
 
   render() {
-
-    if(!this.state.ready){
+    //SET 57 TO FALSE!!!
+    if(this.props.ready){
       this.newCard();
       return(
         <div className="spinner-wrapper">
@@ -80,7 +79,7 @@ class FlashCard extends Component {
       <div>
           <div className="row align-items-center card-holder">
               <div onClick={this.flip} className={`col-sm-6 offset-sm-3 card mb-3" ${this.state.flipClass}`}>
-                  { card }} />
+                  { card }
               </div>  
           <button onClick={this.newCard} className="btn btn-primary btn-lg">Next Question</button>
           </div>

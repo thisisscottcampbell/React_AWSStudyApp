@@ -7,11 +7,11 @@ class RandomWeighted extends Component {
     return (
       <div>
       <div className="card-back">
-          <div>{this.props.question.service}</div>
-          <div className="commonality">{this.props.question.common}</div>
+          <div>{this.props.questionData.service}</div>
+          <div className="commonality">{this.props.questionData.common}</div>
       </div>
       <div className="card-front">
-          <div>{this.props.question.cat}</div>
+          <div>{this.props.questionData.cat}</div>
       </div>
   </div>
     );
