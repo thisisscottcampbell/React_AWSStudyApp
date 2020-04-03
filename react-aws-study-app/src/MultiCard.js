@@ -4,8 +4,18 @@ class MultiCard extends Component {
   render() {
     return (
       <div>
-        MultiCard
-      </div>
+          <div className="card-back">
+            <div>
+              AWS Service
+            </div>
+            <ul className='multi'>
+              options
+            </ul>
+          </div>
+          <div className="card-front">
+            multipleChoice answer
+          </div>
+        </div>
     );
   }
 }

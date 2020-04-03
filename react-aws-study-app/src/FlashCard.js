@@ -21,7 +21,7 @@ class FlashCard extends Component {
     return(
       <div>
           <div className="row align-items-center card-holder">
-              <div onClick={this.flip} className="col-sm-6 offset-sm-3 card mb-3">
+              <div onClick={this.flip} className={`col-sm-6 offset-sm-3 card mb-3" ${this.state.flipClass}`}>
                   <RandomWeighted />
               </div>
           </div>

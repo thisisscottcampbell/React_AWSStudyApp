@@ -4,8 +4,15 @@ class RegularCard extends Component {
   render() {
     return (
       <div>
-        RegularCard
+        <div className="card-back">
+            AWS Service    
+        </div>
+        <div className="card-front">
+          Description
+          Category
+        </div>
       </div>
+
     );
   }
 }
