@@ -1,0 +1,14 @@
+.button-div {
+  display: flex;
+}
+
+.btn {
+  color: yellow;
+  display: flex;
+  margin-top: 30px;
+
+}
+
+.block {
+  margin: 25px;
+}

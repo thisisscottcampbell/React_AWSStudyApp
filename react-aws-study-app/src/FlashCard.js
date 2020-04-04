@@ -6,7 +6,9 @@ import axios from 'axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSpinner } from '@fortawesome/free-solid-svg-icons';
 import { library } from '@fortawesome/fontawesome-svg-core';
+import './FlashCard.css'
 library.add(faSpinner);
+
 
 
 class FlashCard extends Component {
@@ -32,24 +34,27 @@ class FlashCard extends Component {
   }
 
   newCard = () => {
-    console.log('YOOOOOOOO')
+    console.log('New Card: YOOOOOOOO')
     console.log(`API: ${this.props.API}`)
+    console.log(`ALL ${this.props.API}/all`)
+    console.log(`WEIGHTED ${this.props.API}/weighted`)
+    console.log(`MULTI ${this.props.API}/multi`)
 
     let path;
     const cardStyle = this.props.cardStyle;
     if((cardStyle === 'Random') || (cardStyle === 'Regular')){
-        path = this.apiHostRoot+'/all'
+        path = `${this.props.API}/all`
     }else if(cardStyle === 'Weighted'){
-        path = this.apiHostRoot+'/weighted'
+        path = `${this.props.API}/weighted`
     }else{
-        path = this.apiHostRoot+'/multi'
+        path = `${this.props.API}/multi`
     }
     axios.get(path).then((response) => {
+      
       this.setState({
         questionData: response.data,
       })
       this.props.nowReady();
-      console.log(response.data)
     })
   }
 
@@ -77,11 +82,13 @@ class FlashCard extends Component {
 
     return(
       <div>
-          <div className="row align-items-center card-holder">
+          <div className="align-items-center card-holder block">
               <div onClick={this.flip} className={`col-sm-6 offset-sm-3 card mb-3" ${this.state.flipClass}`}>
-                  { card }
+                { card }
               </div>  
-          <button onClick={this.newCard} className="btn btn-primary btn-lg">Next Question</button>
+              <div className="button-div">
+                <button onClick={this.newCard} className="btn btn-primary btn-lg">Next Question</button>
+              </div>
           </div>
       </div>
     )
